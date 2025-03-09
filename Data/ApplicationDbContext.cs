@@ -1,13 +1,17 @@
+using DemoBackShopCore.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DemoBackShopCore.Context
 {
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
+        public DbSet<Customer> Customers { get; set; }
+        
         public ApplicationDbContext(DbContextOptions options) : base(options: options)
         {
             
         }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
